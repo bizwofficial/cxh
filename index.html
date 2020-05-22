@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>课堂专用抽学号</title>
 </head>
+<body>
 <div style="text-align: center;">
     <style type="text/css">
         p.main_style {
@@ -26,15 +27,22 @@
     <h1 class="centerize">课堂抽学号系统</h1><br><br><br>
     <p class="main_style" id="num">0</p><br><br><br>
     <div style="text-align: center;"/>
+    <input type="number" name="起始学号" value=1 id="st"><br>
+
+    <input type="number" name="起始学号" value=1 id="ed"><br><br>
     <button onclick="make()" class="button_style">开始！</button></div>
     <script>
         function make() {
+            st=parseInt(document.getElementById("st").value);
+
+            ed=parseInt(document.getElementById("ed").value);
+
             for(let i = 1; i < 20000; i++) {
-                setTimeout("make_random()", 1);
+                setTimeout("make_random("+st+","+ed+")", 1);
             }
         }
-        function make_random() {
-            document.getElementById("num").innerHTML = Math.floor(Math.random()*(48-1+1)+1).toString()
+        function make_random(strt,endd) {
+            document.getElementById("num").innerHTML = Math.floor(Math.random()*(endd-strt+1)+strt).toString()
         }
     </script>
 </body>
