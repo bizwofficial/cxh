@@ -40,15 +40,15 @@
 
             ed=parseInt(document.getElementById("ed").value);
 
-            //for(let i = 1; i < 20000; i++) {
-                setInterval("make_random("+st+","+ed+")", 100);
-            //}
-            while (true) {
+            for(let i = 1; i < 20000; i++) {
+                setTimeout("make_random("+st+","+ed+")", 100);
+            }
+            /*while (true) {
                 if (a >= 30) {
                     documeny.getElementById("but").innerHTML = "再来一次";
                     break;
                 }
-            }
+            }*/
         }
         function make_random(strt,endd) {
             document.getElementById("num").innerHTML = Math.floor(Math.random()*(endd-strt+1)+strt).toString();
