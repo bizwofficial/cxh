@@ -68,7 +68,7 @@
             current_content=document.getElementById("num").innerHTML;
             if (if_history==true) {
                 if(if_repeat) {
-                    if(history_string.indexOf(current_content) != -1) {
+                    if(history_string.indexOf(" "+current_content+" ") != -1) {
                         return;
                     }
                 }
