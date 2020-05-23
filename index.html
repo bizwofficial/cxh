@@ -22,6 +22,15 @@
             color: white;
             font-size: 18px;
         }
+        button.button_clicked_style {
+            border-radius: 30px;
+            border: 0px;
+            padding: 15px 32px;
+            text-align: center;
+            background-color: gray;
+            color: white;
+            font-size: 18px;
+        }
         .centerize {text-align: center}
     </style>
     <h1 class="centerize">课堂抽学号系统</h1><br><br><br>
@@ -35,7 +44,8 @@
         //var a = 0;
         function make() {
             //a = 0;
-            //document.getElementById("but").innerHTML = "正在抽取...";
+            document.getElementById("but").innerHTML = "正在抽取...";
+            document.getElementById("but").setAttribute("class", "button_clicked_style");
             st=parseInt(document.getElementById("st").value);
 
             ed=parseInt(document.getElementById("ed").value);
@@ -44,6 +54,7 @@
                 setTimeout("make_random("+st+","+ed+")", 100);
             }
             setTimeout('document.getElementById("but").innerHTML = "再来一次";', 1000);
+            setTeimeout('document.getElementById("but").setAttribute("class", "button_style");', 1000);
             /*while (true) {
                 if (a >= 30) {
                     documeny.getElementById("but").innerHTML = "再来一次";
