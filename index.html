@@ -13,6 +13,11 @@
             color: red;
             text-align: center;
         }
+        p.history_style {
+            font-size: 20px;
+            color: red;
+            text-align: center;
+        }
         button.button_style {
             border-radius: 30px;
             border: 0px;
@@ -34,37 +39,36 @@
         .centerize {text-align: center}
     </style>
     <h1 class="centerize">课堂抽学号系统</h1><br><br><br>
-    <p class="main_style" id="num">0</p><br><br><br>
+    <p class="main_style" id="num">0</p><br><br>
     <div style="text-align: center;"/>
+    <p class="history_style" id="history"> </p><br>
     起始学号：<input type="number" name="起始学号" value=1 id="st"><br>
-
     终止学号：<input type="number" name="终止学号" value=48 id="ed"><br><br>
     <button onclick="make()" id="but" class="button_style">开始！</button></div>
+    <input type="checkbox" id="history_check" name="历史记录" value="保留历史记录">保留历史记录
     <script>
-        //var a = 0;
         function make() {
-            //a = 0;
             document.getElementById("but").innerHTML = "正在抽取...";
             document.getElementById("but").setAttribute("class", "button_clicked_style");
             st=parseInt(document.getElementById("st").value);
-
             ed=parseInt(document.getElementById("ed").value);
-
             for(let i = 1; i < 20000; i++) {
                 setTimeout("make_random("+st+","+ed+")", 100);
             }
+            setTimeout('history_process()', 1500);
             setTimeout('document.getElementById("but").innerHTML = "再来一次";', 1000);
             setTimeout('document.getElementById("but").setAttribute("class", "button_style");', 1000);
-            /*while (true) {
-                if (a >= 30) {
-                    documeny.getElementById("but").innerHTML = "再来一次";
-                    break;
-                }
-            }*/
+        }
+        function history_process() {
+            if_history=document.getElementById("history_check").checked;
+            history_string=document.getElementById("history").innerHTML;
+            current_content=document.getElementById("num").innerHTML;
+            if (if_history) {
+                history_string+=current_content+" ";
+            }
         }
         function make_random(strt,endd) {
             document.getElementById("num").innerHTML = Math.floor(Math.random()*(endd-strt+1)+strt).toString();
-            //a++;
         }
     </script>
 </body>
