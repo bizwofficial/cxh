@@ -65,6 +65,10 @@
             document.getElementById("but").setAttribute("class", "button_clicked_style");
             st=parseInt(document.getElementById("st").value);
             ed=parseInt(document.getElementById("ed").value);
+            if (st<0 || ed<0) {
+                alert("额，学号不是负数吧……");
+                return;
+            }
             for(let i = 1; i < 20000; i++) {
                 setTimeout("make_random("+st+","+ed+")", 100);
             }
