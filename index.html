@@ -61,14 +61,16 @@
     </div>
     <script>
         function make() {
-
             st=parseInt(document.getElementById("st").value);
             ed=parseInt(document.getElementById("ed").value);
             if (st<0 || ed<0) {
                 alert("额，学号不是负数吧……");
                 return;
             }
-
+            if (st>ed) {
+                alert("上面那个空填起始学号，下面填终止学号~");
+                return;
+            }
             document.getElementById("but").innerHTML = "正在抽取...";
             document.getElementById("but").setAttribute("class", "button_clicked_style");
 
