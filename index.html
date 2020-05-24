@@ -44,7 +44,7 @@
             border: 0px;
             padding: 4px 6px;
             text-align: center;
-            background-color: black;
+            background-color: green;
             color: white;
             font-size: 10px;
         }
@@ -70,7 +70,7 @@
         <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项">保留历史记录
         <input type="checkbox" id="repeatcheck" checked="checked">自动去重<br><br>
         <hr>
-        <button class="ver_style">v1.3.3</button><br>
+        <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.3.4</button><br>
         <p>您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues">本项目主页</a>提交您的需求。</p>
     </div>
     <script>
@@ -96,6 +96,9 @@
             setTimeout('document.getElementById("but").setAttribute("class", "button_style");', 1000);
             setTimeout('document.getElementById("but").disabled=false;', 1000);
             setTimeout('history_process()', 1500);
+        }
+        function ver_hint(){
+            alert("绿色表示稳定版本\n黑色表示测试版本\n红色表示调试版本");
         }
         function history_process() {
             if_history=document.getElementById("historycheck").checked;
