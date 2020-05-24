@@ -70,7 +70,7 @@
         <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项">保留历史记录
         <input type="checkbox" id="repeatcheck" checked="checked">自动去重<br><br>
         <hr>
-        <button class="ver_style">v1.3.2</button><br>
+        <button class="ver_style">v1.3.3</button><br>
         <p>您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues">本项目主页</a>提交您的需求。</p>
     </div>
     <script>
@@ -87,12 +87,14 @@
             }
             document.getElementById("but").innerHTML = "正在抽取...";
             document.getElementById("but").setAttribute("class", "button_clicked_style");
+            document.getElementById("but").disabled = true;
 
             for(let i = 1; i < 20000; i++) {
                 setTimeout("make_random("+st+","+ed+")", 100);
             }
             setTimeout('document.getElementById("but").innerHTML = "再来一次";', 1000);
             setTimeout('document.getElementById("but").setAttribute("class", "button_style");', 1000);
+            setTimeout('document.getElementById("but").disabled=false;', 1000);
             setTimeout('history_process()', 1500);
         }
         function history_process() {
