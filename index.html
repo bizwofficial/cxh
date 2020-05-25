@@ -6,18 +6,34 @@
     <link href="59167915-10B1-4B0F-B518-BD285C30B510.png" rel="icon">
     <title>课堂专用抽学号</title>
 </head>
-<body>
-<div style="text-align: center;">
+<body onload="auto_theme();">
     <style type="text/css">
+        body.dark {
+            background-color: black;
+        }
+        body.light {
+            background-color: white;
+        }
         p.main_style {
             font-weight: bold;
             font-size: 100px;
             color: red;
             text-align: center;
         }
+        p.main_dark_style {
+            font-weight: bold;
+            font-size: 100px;
+            color: white;
+            text-align: center;
+        }
         p.history_style {
             font-size: 20px;
             color: red;
+            text-align: center;
+        }
+        p.history_dark_style {
+            font-size: 20px;
+            color: white;
             text-align: center;
         }
         button.button_style {
@@ -26,6 +42,24 @@
             padding: 15px 32px;
             text-align: center;
             background-color: dodgerblue;
+            color: white;
+            font-size: 18px;
+        }
+        button.change_theme_style {
+            border-radius: 30px;
+            border: 2px solid black;
+            padding: 10px 25px;
+            text-align: center;
+            background-color: white;
+            color: black;
+            font-size: 18px;
+        }
+        button.change_theme_dark_style {
+            border-radius: 30px;
+            border: 5px white;
+            padding: 15px 32px;
+            text-align: center;
+            background-color: black;
             color: white;
             font-size: 18px;
         }
@@ -38,13 +72,21 @@
             color: white;
             font-size: 14px;
         }
-
+        a.follow_dark_style {
+            border-radius: 5px;
+            border: 0px;
+            padding: 6px 16px;
+            text-align: center;
+            background-color: white;
+            color: black;
+            font-size: 14px;
+        }
         button.ver_style {
             border-radius: 5px;
             border: 0px;
             padding: 4px 6px;
             text-align: center;
-            background-color: green;
+            background-color: black;
             color: white;
             font-size: 10px;
         }
@@ -57,23 +99,71 @@
             color: white;
             font-size: 18px;
         }
-        .centerize {text-align: center}
+        .centerize {
+            text-align: center;
+            color: black;
+        }
+        .centerize_dark {
+            text-align: center;
+            color: white;
+        }
     </style>
-    <h1 class="centerize">课堂抽学号系统</h1><br>
-    <a href="https://github.com/bizwofficial" target="_blank" class="follow_style">在GitHub上follow裨治文总统</a><br>
-    <p class="main_style" id="num">0</p><br>
+    <div style="text-align: right;">
+        <button class="change_theme_style" onclick="dark()" id="change_style_button">夜间模式</button><br>
+    </div>
     <div style="text-align: center;">
+        <h1 class="centerize" id="main_title">课堂抽学号系统</h1><br>
+        <a href="https://github.com/bizwofficial" target="_blank" class="follow_style" id="follow_button">在GitHub上follow裨治文总统</a><br>
+        <p class="main_style" id="num">0</p><br>
         <p class="history_style" id="history"> </p><br>
-        起始学号：<input type="number" name="起始学号" value=1 id="st"><br>
-        终止学号：<input type="number" name="终止学号" value=48 id="ed"><br><br>
+        <span class="centerize" id="st_prompt">起始学号：</span><input type="number" name="起始学号" value=1 id="st"><br>
+        <span class="centerize" id="ed_prompt">终止学号：</span><input type="number" name="终止学号" value=48 id="ed"><br><br>
         <button onclick="make()" id="but" class="button_style">开始！</button><br>
-        <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项">保留历史记录
-        <input type="checkbox" id="repeatcheck" checked="checked">自动去重<br><br>
+        <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
+        <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
         <hr>
-        <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.3.4</button><br>
-        <p>您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues">本项目主页</a>提交您的需求。</p>
+        <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.4.0rc</button><br>
+        <p class="centerize" id="issues_prompt">您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues" id="issues_link">本项目主页</a>提交您的需求。</p>
     </div>
     <script>
+        function auto_theme() {
+            let date=new Date();
+            let newdate=date.toLocaleString('chinese', { hour12: false });
+            let hour=parseInt(newdate.substr(newdate.indexOf(" ")+1, 2));
+            if (hour>19 || hour<9) {
+                dark();
+            } else {
+                light();
+            }
+        }
+        function dark() {
+            document.body.setAttribute("class", "dark");
+            document.getElementById("main_title").setAttribute("class", "centerize_dark");
+            document.getElementById("follow_button").setAttribute("class", "follow_dark_style");
+            document.getElementById("num").setAttribute("class", "main_dark_style");
+            document.getElementById("st_prompt").setAttribute("class", "centerize_dark");
+            document.getElementById("ed_prompt").setAttribute("class", "centerize_dark");
+            document.getElementById("history_prompt").setAttribute("class", "centerize_dark");
+            document.getElementById("repeat_prompt").setAttribute("class", "centerize_dark");
+            document.getElementById("issues_prompt").setAttribute("class", "centerize_dark");
+            document.getElementById("issues_link").setAttribute("class", "centerize_dark");
+            document.getElementById("change_style_button").innerHTML = "日间模式";
+            document.getElementById("change_style_button").setAttribute("onclick", "light()");
+        }
+        function light() {
+            document.body.setAttribute("class", "light");
+            document.getElementById("main_title").setAttribute("class", "centerize");
+            document.getElementById("follow_button").setAttribute("class", "follow_style");
+            document.getElementById("num").setAttribute("class", "main_style");
+            document.getElementById("st_prompt").setAttribute("class", "centerize");
+            document.getElementById("ed_prompt").setAttribute("class", "centerize");
+            document.getElementById("history_prompt").setAttribute("class", "centerize");
+            document.getElementById("repeat_prompt").setAttribute("class", "centerize");
+            document.getElementById("issues_prompt").setAttribute("class", "centerize");
+            document.getElementById("issues_link").setAttribute("class", "centerize");
+            document.getElementById("change_style_button").innerHTML = "夜间模式";
+            document.getElementById("change_style_button").setAttribute("onclick", "dark()");
+        }
         function make() {
             st=parseInt(document.getElementById("st").value);
             ed=parseInt(document.getElementById("ed").value);
@@ -88,7 +178,6 @@
             document.getElementById("but").innerHTML = "正在抽取...";
             document.getElementById("but").setAttribute("class", "button_clicked_style");
             document.getElementById("but").disabled = true;
-
             for(let i = 1; i < 20000; i++) {
                 setTimeout("make_random("+st+","+ed+")", 100);
             }
