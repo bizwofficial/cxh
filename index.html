@@ -126,7 +126,7 @@
         <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
         <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
         <hr>
-        <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.4.1</button><br>
+        <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.4.2</button><br>
         <p class="centerize" id="issues_prompt">您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues" id="issues_link">本项目主页</a>提交您的需求。</p>
     </div>
     <script>
@@ -195,7 +195,9 @@
             setTimeout('history_process()', 1500);
         }
         function ver_hint(){
-            alert("绿色表示稳定版本\n黑色表示测试版本\n红色表示调试版本");
+            if (confirm("绿色表示稳定版本\n黑色表示测试版本\n红色表示调试版本\n\n点击“确定”前往Releases页")) {
+                window.open("https://github.com/bizwofficial/cxh/releases");
+            }
         }
         function history_process() {
             if_history=document.getElementById("historycheck").checked;
