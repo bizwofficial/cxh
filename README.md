@@ -1,6 +1,6 @@
 # 课堂抽学号系统
 
-网址是https://bizwofficial.github.io/cxh，欢迎体验~
+网址是https://bizwofficial.github.io/cxh ，欢迎体验~
 
 ## 几点说明
 - [Releases页](https://github.com/bizwofficial/cxh/releases)用于发布稳定build（绿色）；
