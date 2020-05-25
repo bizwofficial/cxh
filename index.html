@@ -48,8 +48,10 @@
         button.change_theme_style {
             border-radius: 30px;
             border: 2px solid black;
-            padding: 10px 25px;
+            padding: 20px 20px;
             text-align: center;
+            background-image: url(dark.png);
+            background-size: 100% 100%;
             background-color: white;
             color: black;
             font-size: 18px;
@@ -57,9 +59,11 @@
         button.change_theme_dark_style {
             border-radius: 30px;
             border: 5px white;
-            padding: 15px 32px;
+            padding: 20px 20px;
             text-align: center;
-            background-color: black;
+            background-color: white;
+            background-size: 100% 100%;
+            background-image: url(light.png);
             color: white;
             font-size: 18px;
         }
@@ -81,15 +85,6 @@
             color: black;
             font-size: 14px;
         }
-        button.ver_style {
-            border-radius: 5px;
-            border: 0px;
-            padding: 4px 6px;
-            text-align: center;
-            background-color: black;
-            color: white;
-            font-size: 10px;
-        }
         button.button_clicked_style {
             border-radius: 30px;
             border: 0px;
@@ -107,9 +102,18 @@
             text-align: center;
             color: white;
         }
+        button.ver_style {
+            border-radius: 5px;
+            border: 0px;
+            padding: 4px 6px;
+            text-align: center;
+            background-color: green;
+            color: white;
+            font-size: 10px;
+        }
     </style>
     <div style="text-align: right;">
-        <button class="change_theme_style" onclick="dark()" id="change_style_button">夜间模式</button><br>
+        <button class="change_theme_style" onclick="dark()" id="change_style_button"></button><br>
     </div>
     <div style="text-align: center;">
         <h1 class="centerize" id="main_title">课堂抽学号系统</h1><br>
@@ -122,7 +126,7 @@
         <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
         <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
         <hr>
-        <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.4.0rc3</button><br>
+        <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.4.1</button><br>
         <p class="centerize" id="issues_prompt">您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues" id="issues_link">本项目主页</a>提交您的需求。</p>
     </div>
     <script>
@@ -148,8 +152,9 @@
             document.getElementById("repeat_prompt").setAttribute("class", "centerize_dark");
             document.getElementById("issues_prompt").setAttribute("class", "centerize_dark");
             document.getElementById("issues_link").setAttribute("class", "centerize_dark");
-            document.getElementById("change_style_button").innerHTML = "日间模式";
+            //document.getElementById("change_style_button").innerHTML = "日间模式";
             document.getElementById("change_style_button").setAttribute("onclick", "light()");
+            document.getElementById("change_style_button").setAttribute("class", "change_theme_dark_style");
         }
         function light() {
             document.body.setAttribute("class", "light");
@@ -163,8 +168,9 @@
             document.getElementById("repeat_prompt").setAttribute("class", "centerize");
             document.getElementById("issues_prompt").setAttribute("class", "centerize");
             document.getElementById("issues_link").setAttribute("class", "centerize");
-            document.getElementById("change_style_button").innerHTML = "夜间模式";
+            //document.getElementById("change_style_button").innerHTML = "夜间模式";
             document.getElementById("change_style_button").setAttribute("onclick", "dark()");
+            document.getElementById("change_style_button").setAttribute("class", "change_theme_style");
         }
         function make() {
             st=parseInt(document.getElementById("st").value);
