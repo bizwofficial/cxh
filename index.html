@@ -7,215 +7,215 @@
     <title>课堂专用抽学号</title>
 </head>
 <body onload="auto_theme();">
-    <style type="text/css">
-        body.dark {
-            background-color: black;
+<style type="text/css">
+    body.dark {
+        background-color: black;
+    }
+    body.light {
+        background-color: white;
+    }
+    p.main_style {
+        font-weight: bold;
+        font-size: 100px;
+        color: red;
+        text-align: center;
+    }
+    p.main_dark_style {
+        font-weight: bold;
+        font-size: 100px;
+        color: white;
+        text-align: center;
+    }
+    p.history_style {
+        font-size: 20px;
+        color: red;
+        text-align: center;
+    }
+    p.history_dark_style {
+        font-size: 20px;
+        color: white;
+        text-align: center;
+    }
+    button.button_style {
+        border-radius: 30px;
+        border: 0px;
+        padding: 15px 32px;
+        text-align: center;
+        background-color: dodgerblue;
+        color: white;
+        font-size: 18px;
+    }
+    button.change_theme_style {
+        border-radius: 30px;
+        border: 2px solid black;
+        padding: 20px 20px;
+        text-align: center;
+        background-image: url(dark.png);
+        background-size: 100% 100%;
+        background-color: white;
+        color: black;
+        font-size: 18px;
+    }
+    button.change_theme_dark_style {
+        border-radius: 30px;
+        border: 5px white;
+        padding: 20px 20px;
+        text-align: center;
+        background-color: white;
+        background-size: 100% 100%;
+        background-image: url(light.png);
+        color: white;
+        font-size: 18px;
+    }
+    a.follow_style {
+        border-radius: 5px;
+        border: 0px;
+        padding: 6px 16px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        font-size: 14px;
+    }
+    a.follow_dark_style {
+        border-radius: 5px;
+        border: 0px;
+        padding: 6px 16px;
+        text-align: center;
+        background-color: white;
+        color: black;
+        font-size: 14px;
+    }
+    button.button_clicked_style {
+        border-radius: 30px;
+        border: 0px;
+        padding: 15px 32px;
+        text-align: center;
+        background-color: gray;
+        color: white;
+        font-size: 18px;
+    }
+    .centerize {
+        text-align: center;
+        color: black;
+    }
+    .centerize_dark {
+        text-align: center;
+        color: white;
+    }
+    button.ver_style {
+        border-radius: 5px;
+        border: 0px;
+        padding: 4px 6px;
+        text-align: center;
+        background-color: green;
+        color: white;
+        font-size: 10px;
+    }
+</style>
+<div style="text-align: right;">
+    <button class="change_theme_style" onclick="dark()" id="change_style_button"></button><br>
+</div>
+<div style="text-align: center;">
+    <h1 class="centerize" id="main_title">课堂抽学号系统</h1><br>
+    <a href="https://github.com/bizwofficial" target="_blank" class="follow_style" id="follow_button">在GitHub上follow裨治文总统</a><br>
+    <p class="main_style" id="num">0</p><br>
+    <p class="history_style" id="history"> </p><br>
+    <span class="centerize" id="st_prompt">起始学号：</span><input type="number" name="起始学号" value=1 id="st"><br>
+    <span class="centerize" id="ed_prompt">终止学号：</span><input type="number" name="终止学号" value=48 id="ed"><br><br>
+    <button onclick="make()" id="but" class="button_style">开始！</button><br>
+    <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
+    <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
+    <hr>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.4.3</button><br>
+    <p class="centerize" id="issues_prompt">您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues" id="issues_link">本项目主页</a>提交您的需求。</p>
+</div>
+<script>
+    function auto_theme() {
+        let date=new Date();
+        let newdate=date.toLocaleString('chinese', { hour12: false });
+        let hour=parseInt(newdate.substr(newdate.indexOf(" ")+1, 2));
+        if (hour>=18 || hour<=8) {
+            dark();
+        } else {
+            light();
         }
-        body.light {
-            background-color: white;
+    }
+    function dark() {
+        document.body.setAttribute("class", "dark");
+        document.getElementById("main_title").setAttribute("class", "centerize_dark");
+        document.getElementById("follow_button").setAttribute("class", "follow_dark_style");
+        document.getElementById("num").setAttribute("class", "main_dark_style");
+        document.getElementById("history").setAttribute("class", "history_dark_style");
+        document.getElementById("st_prompt").setAttribute("class", "centerize_dark");
+        document.getElementById("ed_prompt").setAttribute("class", "centerize_dark");
+        document.getElementById("history_prompt").setAttribute("class", "centerize_dark");
+        document.getElementById("repeat_prompt").setAttribute("class", "centerize_dark");
+        document.getElementById("issues_prompt").setAttribute("class", "centerize_dark");
+        document.getElementById("issues_link").setAttribute("class", "centerize_dark");
+        //document.getElementById("change_style_button").innerHTML = "日间模式";
+        document.getElementById("change_style_button").setAttribute("onclick", "light()");
+        document.getElementById("change_style_button").setAttribute("class", "change_theme_dark_style");
+    }
+    function light() {
+        document.body.setAttribute("class", "light");
+        document.getElementById("main_title").setAttribute("class", "centerize");
+        document.getElementById("follow_button").setAttribute("class", "follow_style");
+        document.getElementById("history").setAttribute("class", "history_style");
+        document.getElementById("num").setAttribute("class", "main_style");
+        document.getElementById("st_prompt").setAttribute("class", "centerize");
+        document.getElementById("ed_prompt").setAttribute("class", "centerize");
+        document.getElementById("history_prompt").setAttribute("class", "centerize");
+        document.getElementById("repeat_prompt").setAttribute("class", "centerize");
+        document.getElementById("issues_prompt").setAttribute("class", "centerize");
+        document.getElementById("issues_link").setAttribute("class", "centerize");
+        //document.getElementById("change_style_button").innerHTML = "夜间模式";
+        document.getElementById("change_style_button").setAttribute("onclick", "dark()");
+        document.getElementById("change_style_button").setAttribute("class", "change_theme_style");
+    }
+    function make() {
+        st=parseInt(document.getElementById("st").value);
+        ed=parseInt(document.getElementById("ed").value);
+        if (st<0 || ed<0) {
+            alert("额，学号不是负数吧……");
+            return;
         }
-        p.main_style {
-            font-weight: bold;
-            font-size: 100px;
-            color: red;
-            text-align: center;
+        if (st>ed) {
+            alert("上面那个空填起始学号，下面填终止学号~");
+            return;
         }
-        p.main_dark_style {
-            font-weight: bold;
-            font-size: 100px;
-            color: white;
-            text-align: center;
+        document.getElementById("but").innerHTML = "正在抽取...";
+        document.getElementById("but").setAttribute("class", "button_clicked_style");
+        document.getElementById("but").disabled = true;
+        for(let i = 1; i < 20000; i++) {
+            setTimeout("make_random("+st+","+ed+")", 100);
         }
-        p.history_style {
-            font-size: 20px;
-            color: red;
-            text-align: center;
+        setTimeout('document.getElementById("but").innerHTML = "再来一次";', 1000);
+        setTimeout('document.getElementById("but").setAttribute("class", "button_style");', 1000);
+        setTimeout('document.getElementById("but").disabled=false;', 1000);
+        setTimeout('history_process()', 1500);
+    }
+    function ver_hint(){
+        if (confirm("绿色表示稳定版本\n黑色表示测试版本\n红色表示调试版本\n\n点击“确定”前往Releases页")) {
+            window.open("https://github.com/bizwofficial/cxh/releases");
         }
-        p.history_dark_style {
-            font-size: 20px;
-            color: white;
-            text-align: center;
-        }
-        button.button_style {
-            border-radius: 30px;
-            border: 0px;
-            padding: 15px 32px;
-            text-align: center;
-            background-color: dodgerblue;
-            color: white;
-            font-size: 18px;
-        }
-        button.change_theme_style {
-            border-radius: 30px;
-            border: 2px solid black;
-            padding: 20px 20px;
-            text-align: center;
-            background-image: url(dark.png);
-            background-size: 100% 100%;
-            background-color: white;
-            color: black;
-            font-size: 18px;
-        }
-        button.change_theme_dark_style {
-            border-radius: 30px;
-            border: 5px white;
-            padding: 20px 20px;
-            text-align: center;
-            background-color: white;
-            background-size: 100% 100%;
-            background-image: url(light.png);
-            color: white;
-            font-size: 18px;
-        }
-        a.follow_style {
-            border-radius: 5px;
-            border: 0px;
-            padding: 6px 16px;
-            text-align: center;
-            background-color: black;
-            color: white;
-            font-size: 14px;
-        }
-        a.follow_dark_style {
-            border-radius: 5px;
-            border: 0px;
-            padding: 6px 16px;
-            text-align: center;
-            background-color: white;
-            color: black;
-            font-size: 14px;
-        }
-        button.button_clicked_style {
-            border-radius: 30px;
-            border: 0px;
-            padding: 15px 32px;
-            text-align: center;
-            background-color: gray;
-            color: white;
-            font-size: 18px;
-        }
-        .centerize {
-            text-align: center;
-            color: black;
-        }
-        .centerize_dark {
-            text-align: center;
-            color: white;
-        }
-        button.ver_style {
-            border-radius: 5px;
-            border: 0px;
-            padding: 4px 6px;
-            text-align: center;
-            background-color: red;
-            color: white;
-            font-size: 10px;
-        }
-    </style>
-    <div style="text-align: right;">
-        <button class="change_theme_style" onclick="dark()" id="change_style_button"></button><br>
-    </div>
-    <div style="text-align: center;">
-        <h1 class="centerize" id="main_title">课堂抽学号系统</h1><br>
-        <a href="https://github.com/bizwofficial" target="_blank" class="follow_style" id="follow_button">在GitHub上follow裨治文总统</a><br>
-        <p class="main_style" id="num">0</p><br>
-        <p class="history_style" id="history"> </p><br>
-        <span class="centerize" id="st_prompt">起始学号：</span><input type="number" name="起始学号" value=1 id="st"><br>
-        <span class="centerize" id="ed_prompt">终止学号：</span><input type="number" name="终止学号" value=48 id="ed"><br><br>
-        <button onclick="make()" id="but" class="button_style">开始！</button><br>
-        <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
-        <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
-        <hr>
-        <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.4.2</button><br>
-        <p class="centerize" id="issues_prompt">您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues" id="issues_link">本项目主页</a>提交您的需求。</p>
-    </div>
-    <script>
-        function auto_theme() {
-            let date=new Date();
-            let newdate=date.toLocaleString('chinese', { hour12: false });
-            let hour=parseInt(newdate.substr(newdate.indexOf(" ")+1, 2));
-            if (hour>19 || hour<9) {
-                dark();
-            } else {
-                light();
-            }
-        }
-        function dark() {
-            document.body.setAttribute("class", "dark");
-            document.getElementById("main_title").setAttribute("class", "centerize_dark");
-            document.getElementById("follow_button").setAttribute("class", "follow_dark_style");
-            document.getElementById("num").setAttribute("class", "main_dark_style");
-            document.getElementById("history").setAttribute("class", "history_dark_style");
-            document.getElementById("st_prompt").setAttribute("class", "centerize_dark");
-            document.getElementById("ed_prompt").setAttribute("class", "centerize_dark");
-            document.getElementById("history_prompt").setAttribute("class", "centerize_dark");
-            document.getElementById("repeat_prompt").setAttribute("class", "centerize_dark");
-            document.getElementById("issues_prompt").setAttribute("class", "centerize_dark");
-            document.getElementById("issues_link").setAttribute("class", "centerize_dark");
-            //document.getElementById("change_style_button").innerHTML = "日间模式";
-            document.getElementById("change_style_button").setAttribute("onclick", "light()");
-            document.getElementById("change_style_button").setAttribute("class", "change_theme_dark_style");
-        }
-        function light() {
-            document.body.setAttribute("class", "light");
-            document.getElementById("main_title").setAttribute("class", "centerize");
-            document.getElementById("follow_button").setAttribute("class", "follow_style");
-            document.getElementById("history").setAttribute("class", "history_style");
-            document.getElementById("num").setAttribute("class", "main_style");
-            document.getElementById("st_prompt").setAttribute("class", "centerize");
-            document.getElementById("ed_prompt").setAttribute("class", "centerize");
-            document.getElementById("history_prompt").setAttribute("class", "centerize");
-            document.getElementById("repeat_prompt").setAttribute("class", "centerize");
-            document.getElementById("issues_prompt").setAttribute("class", "centerize");
-            document.getElementById("issues_link").setAttribute("class", "centerize");
-            //document.getElementById("change_style_button").innerHTML = "夜间模式";
-            document.getElementById("change_style_button").setAttribute("onclick", "dark()");
-            document.getElementById("change_style_button").setAttribute("class", "change_theme_style");
-        }
-        function make() {
-            st=parseInt(document.getElementById("st").value);
-            ed=parseInt(document.getElementById("ed").value);
-            if (st<0 || ed<0) {
-                alert("额，学号不是负数吧……");
-                return;
-            }
-            if (st>ed) {
-                alert("上面那个空填起始学号，下面填终止学号~");
-                return;
-            }
-            document.getElementById("but").innerHTML = "正在抽取...";
-            document.getElementById("but").setAttribute("class", "button_clicked_style");
-            document.getElementById("but").disabled = true;
-            for(let i = 1; i < 20000; i++) {
-                setTimeout("make_random("+st+","+ed+")", 100);
-            }
-            setTimeout('document.getElementById("but").innerHTML = "再来一次";', 1000);
-            setTimeout('document.getElementById("but").setAttribute("class", "button_style");', 1000);
-            setTimeout('document.getElementById("but").disabled=false;', 1000);
-            setTimeout('history_process()', 1500);
-        }
-        function ver_hint(){
-            if (confirm("绿色表示稳定版本\n黑色表示测试版本\n红色表示调试版本\n\n点击“确定”前往Releases页")) {
-                window.open("https://github.com/bizwofficial/cxh/releases");
-            }
-        }
-        function history_process() {
-            if_history=document.getElementById("historycheck").checked;
-            if_repeat=document.getElementById("repeatcheck").checked;
-            history_string=document.getElementById("history").innerHTML;
-            current_content=document.getElementById("num").innerHTML;
-            if (if_history==true) {
-                if(if_repeat) {
-                    if(history_string.indexOf(" "+current_content+" ") != -1) {
-                        return;
-                    }
+    }
+    function history_process() {
+        if_history=document.getElementById("historycheck").checked;
+        if_repeat=document.getElementById("repeatcheck").checked;
+        history_string=document.getElementById("history").innerHTML;
+        current_content=document.getElementById("num").innerHTML;
+        if (if_history==true) {
+            if(if_repeat) {
+                if(history_string.indexOf(" "+current_content+" ") != -1) {
+                    return;
                 }
-                document.getElementById("history").innerHTML=history_string+current_content+" ";
             }
+            document.getElementById("history").innerHTML=history_string+current_content+" ";
         }
-        function make_random(strt,endd) {
-            document.getElementById("num").innerHTML = Math.floor(Math.random()*(endd-strt+1)+strt).toString();
-        }
-    </script>
+    }
+    function make_random(strt,endd) {
+        document.getElementById("num").innerHTML = Math.floor(Math.random()*(endd-strt+1)+strt).toString();
+    }
+</script>
 </body>
 </html>
