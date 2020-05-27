@@ -1,5 +1,7 @@
 # 课堂抽学号系统
 
+[![star](https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark)](https://gitee.com/bizwofficial/cxh/stargazers)
+
 网址是https://bizwofficial.github.io/cxh ，欢迎体验~
 
 ## 几点说明
