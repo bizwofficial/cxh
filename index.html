@@ -151,6 +151,15 @@
         color: white;
         font-size: 10px;
     }
+    a.download_style {
+        border-radius: 5px;
+        border: 0px;
+        padding: 4px 6px;
+        text-align: center;
+        background-color: mediumpurple;
+        color: white;
+        font-size: 10px;
+    }
 </style>
 <div style="text-align: right;">
     <button class="change_theme_style" onclick="dark()" id="change_style_button"></button><br>
@@ -158,21 +167,23 @@
 <div style="text-align: center;">
     <h1 class="centerize" id="main_title">课堂抽学号系统</h1><br>
     <a href="https://github.com/bizwofficial" target="_blank" class="follow_style" id="follow_button">在GitHub上follow裨治文总统</a><br>
-    <p class="main_style" id="num">0</p><br>
+    <p class="main_style" id="num" onclick="make()">0</p><br>
     <p class="history_style" id="history"> </p><br>
     <span class="centerize" id="st_prompt">起始学号：</span><input type="number" name="起始学号" value=1 id="st"><br>
     <span class="centerize" id="ed_prompt">终止学号：</span><input type="number" name="终止学号" value=48 id="ed"><br><br>
     <button onclick="manual_start()" id="manual_but" class="button_second_style">手动开始</button>
     <button onclick="make()" id="but" class="button_style">一键抽取</button><br>
     <blockquote class="quote_style" id="qt">
-        emm...一键抽取按钮在部分移动设备上无法正常工作。如果您遇到了这个问题，可以在电脑上使用或者使用手动模式。
+        Tips: 点击红色数字也可以抽取~<br>
+        PS: 一键抽取按钮在部分移动设备上无法正常工作。如果您遇到了这个问题，可以在电脑上使用或者使用手动模式。
     </blockquote>
     <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
     <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.0</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.1</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
-    <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img>
+    <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
+    <a href="https://github.com/bizwofficial/cxh/archive/master.zip" download="download" class="download_style">点击此处下载离线版本</a>
     <p class="centerize" id="issues_prompt">您是一位老师？请到<a href="https://github.com/bizwofficial/cxh/issues" id="issues_link">本项目主页</a>提交您的需求。</p>
     <p class="centerize" id="donate_prompt">希望捐赠并为本项目提供资金支持？我们不需要捐赠。</p>
 </div>
