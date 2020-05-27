@@ -10,9 +10,11 @@
 <style type="text/css">
     body.dark {
         background-color: black;
+        transition: background 500ms;
     }
     body.light {
         background-color: white;
+        transition: background 500ms;
     }
     p.main_style {
         font-weight: bold;
@@ -147,7 +149,7 @@
         border: 0px;
         padding: 4px 6px;
         text-align: center;
-        background-color: green;
+        background-color: red;
         color: white;
         font-size: 10px;
     }
@@ -180,7 +182,7 @@
     <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
     <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.1</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.2</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
     <a href="https://github.com/bizwofficial/cxh/archive/master.zip" download="download" class="download_style">点击此处下载离线版本</a>
