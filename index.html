@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.8, maximum-scale=1.0"/>
     <link href="59167915-10B1-4B0F-B518-BD285C30B510.png" rel="icon">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <title>课堂专用抽学号</title>
 </head>
 <body onload="auto_theme();">
@@ -12,6 +11,10 @@
     @font-face {
         font-family: Unc0ver;
         src: url(painting-with-chocolate.regular.ttf)
+    }
+    @font-face {
+        font-family: "Open Sans";
+        src: url("NotoSansCJKsc-Light.otf");
     }
     body.dark {
         background-color: black;
@@ -224,7 +227,7 @@
     <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
     <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.6</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.7</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
     <a href="https://github.com/bizwofficial/cxh/archive/master.zip" download="download" class="download_style">点击此处下载离线版本</a>
