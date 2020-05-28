@@ -10,10 +10,12 @@
 <style type="text/css">
     @font-face {
         font-family: Unc0ver;
+        font-display: block;
         src: url(painting-with-chocolate.regular.ttf)
     }
     @font-face {
         font-family: "Open Sans";
+        font-display: block;
         src: url("NotoSansCJKsc-Light.otf");
     }
     body.dark {
@@ -28,6 +30,7 @@
         font-weight: bold;
         font-size: 120px;
         font-family: Unc0ver;
+        font-display: block;
         color: black;
         text-align: center;
     }
@@ -35,28 +38,33 @@
         font-weight: bold;
         font-size: 120px;
         font-family: Unc0ver;
+        font-display: block;
         color: white;
         text-align: center;
     }
     p.history_style {
         font-size: 20px;
         font-family: "Open Sans";
+        font-display: block;
         color: red;
         text-align: center;
     }
     p.history_dark_style {
         font-size: 20px;
         font-family: "Open Sans";
+        font-display: block;
         color: white;
         text-align: center;
     }
     blockquote.quote_style {
         font-family: "Open Sans";
+        font-display: block;
         border: 1px solid goldenrod;
         color: black;
     }
     blockquote.quote_dark_style {
         font-family: "Open Sans";
+        font-display: block;
         border: 1px solid white;
         color: white;
     }
@@ -69,6 +77,7 @@
         color: white;
         font-size: 18px;
         font-family: "Open Sans";
+        font-display: block;
         transition: 200ms;
     }
     button.button_style:hover {
@@ -92,6 +101,7 @@
         color: black;
         font-size: 18px;
         font-family: "Open Sans";
+        font-display: block;
         transition: 200ms;
     }
     button.button_second_style:hover {
@@ -108,6 +118,7 @@
         color: black;
         font-size: 18px;
         font-family: "Open Sans";
+        font-display: block;
     }
     button.button_second_clicked_style:hover {
         padding: 10px 27px;
@@ -124,6 +135,7 @@
         color: black;
         font-size: 18px;
         font-family: "Open Sans";
+        font-display: block;
         transition: 200ms;
     }
     button.change_theme_style:hover {
@@ -141,6 +153,7 @@
         color: white;
         font-size: 18px;
         font-family: "Open Sans";
+        font-display: block;
         transition: 200ms;
     }
     button.change_theme_dark_style:hover {
@@ -156,6 +169,7 @@
         color: white;
         font-size: 14px;
         font-family: "Open Sans";
+        font-display: block;
     }
     a.follow_dark_style {
         border-radius: 5px;
@@ -166,6 +180,7 @@
         color: black;
         font-size: 14px;
         font-family: "Open Sans";
+        font-display: block;
     }
     button.button_clicked_style {
         border-radius: 30px;
@@ -176,16 +191,19 @@
         color: white;
         font-size: 18px;
         font-family: "Open Sans";
+        font-display: block;
     }
     .centerize {
         text-align: center;
         color: black;
         font-family: "Open Sans";
+        font-display: block;
     }
     .centerize_dark {
         text-align: center;
         color: white;
         font-family: "Open Sans";
+        font-display: block;
     }
     button.ver_style {
         border-radius: 5px;
@@ -196,6 +214,7 @@
         color: white;
         font-size: 10px;
         font-family: "Open Sans";
+        font-display: block;
     }
     a.download_style {
         border-radius: 5px;
@@ -206,6 +225,7 @@
         color: white;
         font-size: 10px;
         font-family: "Open Sans";
+        font-display: block;
     }
 </style>
 <div style="text-align: right;">
@@ -227,7 +247,7 @@
     <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
     <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.8</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.9</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
     <a href="https://github.com/bizwofficial/cxh/archive/master.zip" download="download" class="download_style">点击此处下载离线版本</a>
