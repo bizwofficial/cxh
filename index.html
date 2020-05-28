@@ -8,6 +8,10 @@
 </head>
 <body onload="auto_theme();">
 <style type="text/css">
+    @font-face {
+        font-family: Unc0ver;
+        src: url(painting-with-chocolate.regular.ttf)
+    }
     body.dark {
         background-color: black;
         transition: background 500ms;
@@ -18,13 +22,15 @@
     }
     p.main_style {
         font-weight: bold;
-        font-size: 100px;
-        color: red;
+        font-size: 120px;
+        font-family: Unc0ver;
+        color: black;
         text-align: center;
     }
     p.main_dark_style {
         font-weight: bold;
-        font-size: 100px;
+        font-size: 120px;
+        font-family: Unc0ver;
         color: white;
         text-align: center;
     }
@@ -63,6 +69,11 @@
         background-color: white;
         transition: 200ms;
     }
+    button.button_style:active {
+        background-color: purple;
+        color: white;
+        transition: 200ms;
+    }
     button.button_second_style {
         border-radius: 30px;
         border: 2px solid dodgerblue;
@@ -71,10 +82,12 @@
         background-color: whitesmoke;
         color: black;
         font-size: 18px;
+        transition: 200ms;
     }
     button.button_second_style:hover {
         padding: 10px 27px;
         border: 5px solid dodgerblue;
+        transition: 200ms;
     }
     button.button_second_clicked_style {
         border-radius: 30px;
@@ -99,6 +112,11 @@
         background-color: white;
         color: black;
         font-size: 18px;
+        transition: 200ms;
+    }
+    button.change_theme_style:hover {
+        background: black;
+        transition: 200ms;
     }
     button.change_theme_dark_style {
         border-radius: 30px;
@@ -110,6 +128,11 @@
         background-image: url(light.png);
         color: white;
         font-size: 18px;
+        transition: 200ms;
+    }
+    button.change_theme_dark_style:hover {
+        background-image: none;
+        transition: 200ms;
     }
     a.follow_style {
         border-radius: 5px;
@@ -184,7 +207,7 @@
     <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
     <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.4b1</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.5rc</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
     <a href="https://github.com/bizwofficial/cxh/archive/master.zip" download="download" class="download_style">点击此处下载离线版本</a>
@@ -193,6 +216,7 @@
 </div>
 <script>
     function auto_theme() {
+        window.location.hash = "#main_title";
         let date=new Date();
         let newdate=date.toLocaleString('chinese', { hour12: false });
         let hour=parseInt(newdate.substr(newdate.indexOf(" ")+1, 2));
@@ -269,6 +293,7 @@
         document.getElementById("but").innerHTML = "正在抽取...";
         document.getElementById("but").setAttribute("class", "button_clicked_style");
         document.getElementById("but").disabled = true;
+        document.getElementById("num").removeAttribute("onclick");
         document.getElementById("manual_but").setAttribute("class", "button_second_clicked_style");
         document.getElementById("manual_but").disabled=true;
         for(let i = 1; i < 20000; i++) {
@@ -277,6 +302,7 @@
         setTimeout('document.getElementById("but").innerHTML = "再来一次";', 1000);
         setTimeout('document.getElementById("but").setAttribute("class", "button_style");', 1000);
         setTimeout('document.getElementById("but").disabled=false;', 1000);
+        setTimeout('document.getElementById("num").setAttribute("onclick", "make()");', 1000);
         setTimeout('document.getElementById("manual_but").setAttribute("class", "button_second_style");', 1000);
         setTimeout('document.getElementById("manual_but").disabled=false;', 1000);
         setTimeout('history_process()', 1500);
