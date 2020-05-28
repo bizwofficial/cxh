@@ -270,6 +270,7 @@
         document.getElementById("manual_but").innerHTML="手动停止";
         document.getElementById("but").setAttribute("class", "button_clicked_style");
         document.getElementById("but").disabled=true;
+        document.getElementById("num").removeAttribute("onclick");
     }
     function manual_stop() {
         clearInterval(ps);
@@ -278,6 +279,7 @@
         document.getElementById("manual_but").innerHTML="手动开始";
         document.getElementById("but").setAttribute("class", "button_style");
         document.getElementById("but").disabled=false;
+        document.getElementById("num").setAttribute("onclick", "make()");
     }
     function make() {
         let st=parseInt(document.getElementById("st").value);
