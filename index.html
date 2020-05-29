@@ -68,6 +68,12 @@
         border: 1px solid white;
         color: white;
     }
+    legend.edge {
+        color: black;
+    }
+    legend.edge_dark {
+        color: white;
+    }
     button.button_style {
         border-radius: 30px;
         border: 0px;
@@ -236,8 +242,11 @@
     <a href="https://github.com/bizwofficial" target="_blank" class="follow_style" id="follow_button">在GitHub上follow裨治文总统</a><br>
     <p class="main_style" id="num" onclick="make()">0</p><br>
     <p class="history_style" id="history"> </p><br>
-    <span class="centerize" id="st_prompt">起始学号：</span><input type="number" name="起始学号" value=1 id="st"><br>
-    <span class="centerize" id="ed_prompt">终止学号：</span><input type="number" name="终止学号" value=48 id="ed"><br><br>
+    <fieldset style="width: 400px; margin: 0 auto; float: none;">
+        <legend class="edge" id="edge_prompt">学号范围</legend>
+        <span class="centerize" id="st_prompt">起始学号：</span><input type="number" name="起始学号" value=1 id="st"><br>
+        <span class="centerize" id="ed_prompt">终止学号：</span><input type="number" name="终止学号" value=48 id="ed"><br><br>
+    </fieldset>
     <button onclick="manual_start()" id="manual_but" class="button_second_style">手动开始</button>
     <button onclick="make()" id="but" class="button_style">一键抽取</button><br>
     <blockquote class="quote_style" id="qt">
@@ -247,7 +256,7 @@
     <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
     <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.9</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.10</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
     <a href="https://github.com/bizwofficial/cxh/archive/master.zip" download="download" class="download_style">点击此处下载离线版本</a>
@@ -275,6 +284,7 @@
         document.getElementById("history").setAttribute("class", "history_dark_style");
         document.getElementById("st_prompt").setAttribute("class", "centerize_dark");
         document.getElementById("ed_prompt").setAttribute("class", "centerize_dark");
+        document.getElementById("edge_prompt").setAttribute("class", "edge_dark");
         document.getElementById("history_prompt").setAttribute("class", "centerize_dark");
         document.getElementById("repeat_prompt").setAttribute("class", "centerize_dark");
         document.getElementById("issues_prompt").setAttribute("class", "centerize_dark");
@@ -293,6 +303,7 @@
         document.getElementById("num").setAttribute("class", "main_style");
         document.getElementById("st_prompt").setAttribute("class", "centerize");
         document.getElementById("ed_prompt").setAttribute("class", "centerize");
+        document.getElementById("edge_prompt").setAttribute("class", "edge");
         document.getElementById("history_prompt").setAttribute("class", "centerize");
         document.getElementById("repeat_prompt").setAttribute("class", "centerize");
         document.getElementById("issues_prompt").setAttribute("class", "centerize");
