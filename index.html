@@ -70,12 +70,10 @@
     }
     legend.edge {
         color: black;
-        text-align: center;
         font-family: "Open Sans";
     }
     legend.edge_dark {
         color: white;
-        text-align: center;
         font-family: "Open Sans";
     }
     button.button_style {
@@ -220,7 +218,7 @@
         border: 0px;
         padding: 4px 6px;
         text-align: center;
-        background-color: black;
+        background-color: green;
         color: white;
         font-size: 10px;
         font-family: "Open Sans";
@@ -247,7 +245,7 @@
     <p class="main_style" id="num" onclick="make()">0</p><br>
     <p class="history_style" id="history"> </p><br>
     <fieldset style="width: 70vw; margin: 0 auto; float: none;">
-        <legend class="edge" id="edge_prompt">学号范围</legend>
+        <legend class="edge" align="center" id="edge_prompt">学号范围</legend>
         <span class="centerize" id="st_prompt">起始学号：</span><input type="number" name="起始学号" value=1 id="st"><br>
         <span class="centerize" id="ed_prompt">终止学号：</span><input type="number" name="终止学号" value=48 id="ed"><br><br>
     </fieldset>
@@ -260,7 +258,7 @@
     <input type="checkbox" id="historycheck" title="如果要抽取多个学号，请勾选此选项"><span class="centerize" id="history_prompt">保留历史记录</span>
     <input type="checkbox" id="repeatcheck" checked="checked"><span class="centerize" id="repeat_prompt">自动去重</span><br><br>
     <hr>
-    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.13</button>
+    <button class="ver_style" onclick="ver_hint()" title="这是什么？">v1.5.14</button>
     <img src='https://travis-ci.com/bizwofficial/cxh.svg?branch=master' />
     <img src='https://gitee.com/bizwofficial/cxh/badge/star.svg?theme=dark' alt='star'></img><br><br>
     <a href="https://github.com/bizwofficial/cxh/archive/master.zip" download="download" class="download_style">点击此处下载离线版本</a>
@@ -320,6 +318,18 @@
     function manual_start() {
         let st=parseInt(document.getElementById("st").value);
         let ed=parseInt(document.getElementById("ed").value);
+        if (isNaN(st) || isNaN(ed)) {
+            alert("学号起码是数字啊");
+            return;
+        }
+        if (st<0 || ed<0) {
+            alert("额，学号不是负数吧……");
+            return;
+        }
+        if (st>ed) {
+            alert("上面那个空填起始学号，下面填终止学号~");
+            return;
+        }
         ps=setInterval("make_random("+st+","+ed+")", 5);
         document.getElementById("manual_but").onclick=manual_stop;
         document.getElementById("manual_but").innerHTML="手动停止";
@@ -337,14 +347,12 @@
         document.getElementById("num").setAttribute("onclick", "make()");
     }
     function make() {
-        with (document) {
-            if (isNaN(getElementById("st").value) || isNaN(getElementById("ed").value)) {
-                alert("学号起码是数字啊");
-                return;
-            }
-        }
         let st=parseInt(document.getElementById("st").value);
         let ed=parseInt(document.getElementById("ed").value);
+        if (isNaN(st) || isNaN(ed)) {
+            alert("学号起码是数字啊");
+            return;
+        }
         if (st<0 || ed<0) {
             alert("额，学号不是负数吧……");
             return;
