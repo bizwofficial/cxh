@@ -1,3 +1,4 @@
+> &#x1F4A1;提示：本项目现在由Pres-Edu维护，项目主页已永久迁移至 https://github.com/pres-edu/toolbox 。
 # 课堂抽学号系统
 
 ![](https://travis-ci.com/bizwofficial/cxh.svg?branch=master)
